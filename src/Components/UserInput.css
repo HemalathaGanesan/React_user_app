@@ -1,0 +1,40 @@
+.userInput {
+  width: 60rem;
+  margin: 2rem auto;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  max-width: 95%;
+}
+
+.userControl {
+  margin: 2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.userControl label {
+  display: block;
+  margin-bottom: 0.7rem;
+}
+
+.userControl input {
+  width: 100%;
+  padding: 0.8rem 0;
+  border-radius: 4px;
+  border: 1px solid #d4d1d1;
+}
+
+.addUser{
+    margin: 2rem;
+}
+.addUser button{
+    width: 16%;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: purple;
+    border-radius: 6px;
+    text-align: center;
+}
