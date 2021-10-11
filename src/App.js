@@ -3,6 +3,7 @@ import UserInput from "./Components/UserInput";
 import UserList from "./Components/UserList";
 import LoginPage from "./Components/Login/LoginPage";
 import Home from "./Components/Home/Home";
+import AuthContext from "./Components/store/auth-context";
 function App() {
   //.........USER PAGE CODES
   //   const [users, setUsersState] = useState([]);
@@ -46,10 +47,10 @@ function App() {
   };
 
   return (
-    <React.Fragment>
+    <AuthContext.Provider value={{ isLoggedIn: isLoggedIn }}>
       {!isLoggedIn && <LoginPage onLogin={loginHandler} />}
       {isLoggedIn && <Home onLogout={logoutHandler} />}
-    </React.Fragment>
+    </AuthContext.Provider>
   );
 }
 

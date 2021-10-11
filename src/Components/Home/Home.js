@@ -1,26 +1,35 @@
+import { useContext } from "react";
+import AuthContext from "../store/auth-context";
 import "./Home.css";
 
 const Home = (props) => {
   const logout = () => {
     props.onLogout();
   };
+  const ctx = useContext(AuthContext);
 
   return (
     <div className='container'>
       <div className='header'>
         <h2>A Typical Page</h2>
         <ul>
-          <li>
-            <a href='/'>Users</a>
-          </li>
-          <li>
-            <a href='/'>Admin</a>
-          </li>
-          <li>
-            <button className='home-button' onClick={logout}>
-              Logout
-            </button>
-          </li>
+          {ctx.isLoggedIn && (
+            <li>
+              <a href='/'>Users</a>
+            </li>
+          )}
+          {ctx.isLoggedIn && (
+            <li>
+              <a href='/'>Admin</a>
+            </li>
+          )}
+          {ctx.isLoggedIn && (
+            <li>
+              <button className='home-button' onClick={logout}>
+                Logout
+              </button>
+            </li>
+          )}
         </ul>
       </div>
       <div className='welcome-modal'>
