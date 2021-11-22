@@ -1,0 +1,11 @@
+.counter{
+    width: 50rem;
+    margin:2rem auto;
+    height:10rem;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+    font-size: 5rem;
+    font-weight: bold;
+}
