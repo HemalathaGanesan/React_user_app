@@ -1,0 +1,20 @@
+.task_new{
+    width: 50rem;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: row;
+    
+
+}
+.task_new input{
+    padding: 4px;
+    margin-bottom: 2rem;
+    height: 2rem;
+    background-color: black;
+    color: white;
+    margin-right: 7px;
+}
+.task_new button{
+    width: 20rem;
+    height: 3rem;
+}
