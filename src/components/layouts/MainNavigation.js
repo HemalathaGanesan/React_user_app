@@ -13,7 +13,7 @@ const MainNavigation = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to='/quotes/:id' className={classes.active}>
+            <NavLink to='/newquote' className={classes.active}>
               Add a Quote
             </NavLink>
           </li>

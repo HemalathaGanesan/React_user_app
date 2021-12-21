@@ -3,6 +3,7 @@ import AllQuotes from "./pages/AllQuotes";
 import QuoteDetails from "./pages/QuoteDetails";
 import NewQuotes from "./pages/NewQuotes";
 import Layout from "./components/layouts/Layout";
+import NotFound from "./pages/NotFound";
 
 // import Welcome from "./pages/Welcome";
 // import Products from "./pages/Products";
@@ -35,8 +36,9 @@ function App() {
       <Routes>
         <Route path='/' element={<AllQuotes />} />
         <Route path='/quotes' element={<AllQuotes />} />
-        <Route path='/quotes/*' element={<QuoteDetails />} />
+        <Route path='/quotes/:id/*' element={<QuoteDetails />} />
         <Route path='/newquote' element={<NewQuotes />} />
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
     </Layout>
   );
