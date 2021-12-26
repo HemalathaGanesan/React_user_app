@@ -1,36 +1,38 @@
-import { Routes, Route, useParams, Link } from "react-router-dom";
+import { Routes, Route, useParams, NavLink } from "react-router-dom";
 import Comments from "../components/comments/Comments";
 import HighlightedQuote from "../components/quotes/HighlightedQuote";
-
-const DUMMY_QUOTES = [
-  {
-    id: 1,
-    author: "hema",
-    text: "new quotes-1",
-  },
-  {
-    id: 2,
-    author: "hema1",
-    text: "new quotes-2",
-  },
-  {
-    id: 3,
-    author: "hema2",
-    text: "new quotes-3",
-  },
-];
+import { getSingleQuotes } from "../lib/api";
+import useHttp from "../hooks/use-http";
+import { useEffect } from "react";
+import LoadingSpinner from "../components/UI/LoadingSpinner";
 
 const QuoteDetails = () => {
   const params = useParams();
-  let quoteId = Number(params.id);
-  const quote = DUMMY_QUOTES.find((quote) => quote.id === quoteId);
+  const {
+    sendRequest,
+    status,
+    data: quoteData,
+    error,
+  } = useHttp(getSingleQuotes, true);
 
-  if (!quote) return <p>No Quote found</p>;
+  useEffect(() => {
+    sendRequest(params.id);
+  }, [sendRequest, params.id]);
+
+  if (status === "pending") {
+    return (
+      <div className='loading'>
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
+  if (!quoteData) return <p>No Quote found</p>;
 
   return (
     <div>
-      <HighlightedQuote author={quote.author} text={quote.text} />
-      <Link to='comments'>Load Comments</Link>
+      <HighlightedQuote author={quoteData.author} text={quoteData.text} />
+      <NavLink to='comments'>Load Comments</NavLink>
       <Routes>
         <Route path='comments' element={<Comments />} />
       </Routes>

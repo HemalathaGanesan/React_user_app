@@ -4,6 +4,22 @@ import QuoteDetails from "./pages/QuoteDetails";
 import NewQuotes from "./pages/NewQuotes";
 import Layout from "./components/layouts/Layout";
 import NotFound from "./pages/NotFound";
+import Comments from "./components/comments/Comments";
+import { useEffect } from "react";
+
+function App() {
+  return (
+    <Layout>
+      <Routes>
+        <Route path='/' element={<AllQuotes />} />
+        <Route path='/quotes' element={<AllQuotes />} />
+        <Route path='/quotes/:id/*' element={<QuoteDetails />} />
+        <Route path='/newquote' element={<NewQuotes />} />
+        <Route path='*' element={<NotFound />}></Route>
+      </Routes>
+    </Layout>
+  );
+}
 
 // import Welcome from "./pages/Welcome";
 // import Products from "./pages/Products";
@@ -29,19 +45,5 @@ import NotFound from "./pages/NotFound";
 //     </div>
 //   );
 // }
-
-function App() {
-  return (
-    <Layout>
-      <Routes>
-        <Route path='/' element={<AllQuotes />} />
-        <Route path='/quotes' element={<AllQuotes />} />
-        <Route path='/quotes/:id/*' element={<QuoteDetails />} />
-        <Route path='/newquote' element={<NewQuotes />} />
-        <Route path='*' element={<NotFound />}></Route>
-      </Routes>
-    </Layout>
-  );
-}
 
 export default App;

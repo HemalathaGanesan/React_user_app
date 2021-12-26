@@ -4,7 +4,6 @@ import QuoteItem from "./QuoteItem";
 import classes from "./QuoteList.module.css";
 
 const sortQuote = (quotes, asc) => {
-  debugger;
   return quotes.sort((quoteA, quoteB) => {
     if (asc) {
       return quoteA.id > quoteB.id ? 1 : -1;
@@ -21,7 +20,6 @@ const QuoteList = (props) => {
   const isSortingAsc = queryparams.get("sort") === "asc";
   const sortedQuotes = sortQuote(props.quotes, isSortingAsc);
 
-  console.log(sortedQuotes);
   const changeSortingHandler = () => {
     navigate("/quotes?sort=" + (isSortingAsc ? "desc" : "asc"));
   };
